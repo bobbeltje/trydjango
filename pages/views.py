@@ -6,7 +6,8 @@ def home_view(request, *args, **kwargs):
 	print(request)
 	print(request.user)
 	print(args, kwargs)
-	return HttpResponse("<h1>Hello World</h1>")
+	# return HttpResponse("<h1>Hello World</h1>")
+	return render(request, 'home.html', {})
 
 def contact_view(*args, **kwargs):
 	return HttpResponse('<h1>Contact page</h1>')
