@@ -5,6 +5,8 @@ from .forms import ProductForm
 from .models import Product
 
 def product_create_view(request):
+    print(request.GET)
+    print(request.POST)
     context = {}
     return render(request, 'products/product_create.html', context)
 
