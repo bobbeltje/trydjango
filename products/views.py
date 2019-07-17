@@ -5,8 +5,12 @@ from .forms import ProductForm
 from .models import Product
 
 def product_create_view(request):
-    print(request.GET)
-    print(request.POST)
+    # print(request.GET)
+    # print(request.POST)
+    my_new_title = request.POST.get('title')
+    # to save it to the database uncomment next line
+    # Product.objects.create(title=my_new_title)
+    print(my_new_title)
     context = {}
     return render(request, 'products/product_create.html', context)
 
