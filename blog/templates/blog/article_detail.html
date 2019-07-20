@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Blog title: {{ object.title }}</h1>
+
+<p>{% if object.summary %}{{ object.summary }}{% else %}This article has not yet been written{% endif %}</p>
+
+{% endblock %}
