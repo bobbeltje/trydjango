@@ -18,14 +18,17 @@ from django.urls import path
 
 from pages.views import home_view, contact_view, about_view
 from products.views import (
+    product_list_view,
     product_detail_view, 
     product_delete_view,
     product_create_view,
+    product_list_view,
     render_initial_data,
     dynamic_lookup_view
     )
 
 urlpatterns = [
+    path('products/', product_list_view, name='product-list'),
     path('products/<int:id>/delete/', product_delete_view, name='product-delete'),
     path('products/<int:id>', dynamic_lookup_view, name='product'),
     path('', home_view, name='home'),

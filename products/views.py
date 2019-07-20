@@ -5,6 +5,13 @@ from .forms import ProductForm, RawProductForm
 
 from .models import Product
 
+def product_list_view(request):
+    queryset = Product.objects.all()
+    context = {
+        'object_list': queryset
+    }
+    return render(request, 'products/product_list.html', context)
+
 def product_delete_view(request, id):
     print('oi')
     obj = get_object_or_404(Product, id=id)
