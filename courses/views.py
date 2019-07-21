@@ -4,8 +4,6 @@ from django.views import View
 from .models import Course
 # BASE VIEW Class = View
 
-
-
 class CourseListView(View):
     template_name = 'courses/course_list.html'
     queryset = Course.objects.all()
@@ -16,9 +14,6 @@ class CourseListView(View):
     def get(self, request, *args, **kwargs):
         context = {'object_list': self.get_queryset()}
         return render(request, self.template_name, context)
-
-class MyListView(CourseListView):
-    queryset = Course.objects.filter(id=1)
 
 class CourseView(View):
     template_name = 'courses/course_detail.html'
