@@ -17,6 +17,9 @@ class CourseListView(View):
         context = {'object_list': self.get_queryset()}
         return render(request, self.template_name, context)
 
+class MyListView(CourseListView):
+    queryset = Course.objects.filter(id=1)
+
 class CourseView(View):
     template_name = 'courses/course_detail.html'
     def get(self, request, id=None, *args, **kwargs):
