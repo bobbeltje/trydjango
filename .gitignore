@@ -6,3 +6,7 @@ trydjango\.sublime-workspace
 blog/__init__\.py
 
 blog/migrations/__init__\.py
+
+courses/__init__\.py
+
+courses/migrations/__init__\.py
