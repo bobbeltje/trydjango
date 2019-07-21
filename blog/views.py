@@ -42,24 +42,15 @@ class ArticleDetailView(DetailView):
         id_ = self.kwargs.get('id')
         return get_object_or_404(Article, id=id_)
 
+class ArticleUpdateView(UpdateView):
+    template_name = 'blog/article_create.html'
+    form_class = ArticleForm
+    queryset = Article.objects.all()
 
-# def article_list_view(request):
-#     queryset = Article.objects.all()
-#     context = {
-#         'object_list': queryset
-#     }
-#     return render(request, 'blog/article_list.html', context)
+    def get_object(self):
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(Article, id=id_)
 
-# def article_detail_view(request):
-#     obj = Article.objects.get(id=1)
-#     context = {
-#     'object': obj
-#     }
-#     return render(request, 'blog/article_detail.html', context)
-
-# def dynamic_lookup_view(request, id):
-#     obj = get_object_or_404(Article, id=id)
-#     context = {
-#         'object': obj
-#     }
-#     return render(request, 'blog/article_detail.html', context)
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
