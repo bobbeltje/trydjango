@@ -3,6 +3,7 @@ from django.urls import path
 from .views import (
     # article_list_view,
     ArticleCreateView,
+    ArticleDeleteView,
     ArticleDetailView,
     ArticleListView,
     ArticleUpdateView
@@ -14,6 +15,7 @@ from .views import (
 app_name = 'blogs'
 urlpatterns = [
     path('create/', ArticleCreateView.as_view(), name='article-create'),
+    path('<int:id>/delete/', ArticleDeleteView.as_view(), name='article-delete'),
     path('<int:id>', ArticleDetailView.as_view(), name='article-detail'),
     path('', ArticleListView.as_view(), name='article-list'),
     path('<int:id>/update/', ArticleUpdateView.as_view(), name='article-update')
