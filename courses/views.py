@@ -4,8 +4,8 @@ from django.views import View
 # BASE VIEW Class = View
 
 class CourseView(View):
-    template_name = 'about.html'
-    def get(self, request, *args, **kwargs):
+    template_name = 'courses/course_detail.html'
+    def get(self, request, id=None, *args, **kwargs):
         return render(request, self.template_name, {})
 
 # HTTP METHODS
