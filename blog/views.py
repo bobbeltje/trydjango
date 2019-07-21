@@ -12,6 +12,22 @@ from .forms import ArticleForm
 
 from .models import Article
 
+class ArticleCreateView(CreateView):
+    template_name = 'blog/article_create.html'
+    form_class = ArticleForm
+    queryset = Article.objects.all()
+
+    # method 1: overwrite the page to go to when saving form
+    success_url = '/'
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
+
+    # method2: overwrite the page to go to when saving form
+    def get_success_url(self):
+        return '/'
+
 class ArticleListView(ListView):
     # use template_name to overwrite location to look
     # template_name = 'blog/article_list.html'
