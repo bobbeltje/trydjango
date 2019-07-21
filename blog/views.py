@@ -13,6 +13,8 @@ from .forms import ArticleForm
 from .models import Article
 
 class ArticleListView(ListView):
+    # use template_name to overwrite location to look
+    # template_name = 'blog/article_list.html'
     queryset = Article.objects.all()
 
 
